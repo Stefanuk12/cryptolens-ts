@@ -20,46 +20,46 @@ export interface IKeyGetRequest {
 
 //
 export interface ILicenseKey {
-    ProductId: number
-    ID: number
-    Key: string
-    Created: string
-    Expires: string
-    Period: number
-    F1: boolean
-    F2: boolean
-    F3: boolean
-    F4: boolean
-    F5: boolean
-    F6: boolean
-    F7: boolean
-    F8: boolean
-    Notes: string | null
-    Block: false
-    GlobalId: string
-    Customer: ICustomer
-    ActivatedMachines: IActivationData[]
-    TrialActivation: boolean
-    MaxNoOfMachines: number
-    AllowedMachines: string[]
-    DataObjects: IDataObject[]
-    SignDate: string
-    Signature: string
+    productId: number
+    id: number
+    key: string
+    created: string
+    expires: string
+    period: number
+    f1: boolean
+    f2: boolean
+    f3: boolean
+    f4: boolean
+    f5: boolean
+    f6: boolean
+    f7: boolean
+    f8: boolean
+    notes: string | null
+    block: false
+    globalId: string
+    customer: ICustomer
+    activatedMachines: IActivationData[]
+    trialActivation: boolean
+    maxNoOfMachines: number
+    allowedMachines: string[]
+    dataObjects: IDataObject[]
+    signDate: string
+    signature: string | null
 }
 export interface ILicenseStatus {
-    IsValid: boolean
-    ReasonForInvalidity: 0 | 1 | 2
-    Trial: boolean
-    TimeLimited: boolean
-    TimeLeft: number
+    isValid: boolean
+    reasonForInvalidity: 0 | 1 | 2
+    trial: boolean
+    timeLimited: boolean
+    timeLeft: number
 }
 export interface IMetadata {
-    ActivatedMachines: number | string
-    LicenseStatus: ILicenseStatus
-    UsedFloatingMachines: number
+    activatedMachines: number | string
+    licenseStatus: ILicenseStatus
+    usedFloatingMachines: number
 }
 export interface IKeyGetResponse extends IStandardResponse<TStandardKeyError> {
-    LicenseKey: ILicenseKey
-    Signature: string | undefined
-    Metadata: IMetadata | undefined
+    licenseKey: ILicenseKey
+    signature: string | undefined
+    metadata: IMetadata | undefined
 }
