@@ -1,0 +1,16 @@
+{
+  "name": "cryptolens-ts",
+  "version": "1.0.0",
+  "description": "An API wrapper for Cryptolens written in Typescript",
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Stefanuk12",
+  "license": "MIT",
+  "dependencies": {
+    "got": "^12.5.1"
+  }
+}
