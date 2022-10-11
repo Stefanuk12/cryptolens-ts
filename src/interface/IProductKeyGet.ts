@@ -14,7 +14,7 @@ export interface IProductKeyGetRequest {
 
 //
 export interface IProductKeyGetResponse extends IStandardResponse<TKeyErrorD> {
-    licenseKey: ILicenseKey[]
+    licenseKeys: ILicenseKey[]
     returned: number
     total: number
     pageCount: number
