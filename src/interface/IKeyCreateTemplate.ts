@@ -4,7 +4,7 @@ import { IStandardResponse } from "./IStandardResponse.js"
 
 //
 export interface IKeyCreateTemplate {
-    LicenseTemplateId: string
+    LicenseTemplateId: number
     v?: number
 }
 
