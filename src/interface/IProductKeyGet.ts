@@ -6,9 +6,9 @@ import { IStandardResponse } from "./IStandardResponse"
 //
 export interface IProductKeyGetRequest {
     ProductId: number
-    Page: number | undefined
-    OrderBy: string | undefined
-    SearchQuery: string | undefined
+    Page?: number
+    OrderBy?: string
+    SearchQuery?: string
     v?: number
 }
 
