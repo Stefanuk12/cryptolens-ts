@@ -12,5 +12,13 @@
   "license": "MIT",
   "dependencies": {
     "got": "^12.5.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Stefanuk12/cryptolens-ts.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Stefanuk12/cryptolens-ts/issues"
+  },
+  "homepage": "https://github.com/Stefanuk12/cryptolens-ts#readme"
 }

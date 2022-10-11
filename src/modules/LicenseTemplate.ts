@@ -30,3 +30,4 @@ export class LicenseTemplate {
         return <ILicenseTemplateResponse>await Client.SendRequest("licensetemplate/GetLicenseTemplates")
     }
 }
+export default LicenseTemplate

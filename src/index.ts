@@ -2,7 +2,8 @@
 import got, { Got } from "got"
 import { IStandardResponseAny } from "./interface/IStandardResponse.js"
 import Key from "./modules/Key.js"
-import { LicenseTemplate } from "./modules/LicenseTemplate.js"
+import LicenseTemplate from "./modules/LicenseTemplate.js"
+import Product from "./modules/Product.js"
 
 //
 export interface ICryptolens {
@@ -38,3 +39,4 @@ export default Cryptolens
 // Other exports
 export { Key }
 export { LicenseTemplate }
+export { Product }
