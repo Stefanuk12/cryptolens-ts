@@ -5,7 +5,7 @@ import { IStandardResponse } from "./IStandardResponse"
 
 //
 export interface IProductKeyGetRequest {
-    ProductId: boolean
+    ProductId: number
     Page: number | undefined
     OrderBy: string | undefined
     SearchQuery: string | undefined
