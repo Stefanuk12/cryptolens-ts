@@ -2,6 +2,7 @@
 import got, { Got } from "got"
 import { IStandardResponseAny } from "./interface/IStandardResponse.js"
 import Key from "./modules/Key.js"
+import { LicenseTemplate } from "./modules/LicenseTemplate.js"
 
 //
 export interface ICryptolens {
@@ -26,8 +27,8 @@ export class Cryptolens {
     }
 
     //
-    async SendRequest(URL: string, Data: Object) {
-        return <IStandardResponseAny>await this.HTTPClient(URL, {
+    async SendRequest<T = IStandardResponseAny>(URL: string, Data: Object = {}) {
+        return <T>await this.HTTPClient(URL, {
             searchParams: Data
         }).json()
     }
@@ -36,3 +37,4 @@ export default Cryptolens
 
 // Other exports
 export { Key }
+export { LicenseTemplate }
