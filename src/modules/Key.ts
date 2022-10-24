@@ -1,5 +1,6 @@
 // Dependencies
 import { Cryptolens } from "../index.js";
+import { IKeyAddFeatureRequest, IKeyAddFeatureResponse } from "../interface/IKeyAddFeature.js";
 import { IKeyBlockRequest, IKeyBlockResponse } from "../interface/IKeyBlock.js";
 import { IKeyChangeNotesRequest, IKeyChangeNotesResponse } from "../interface/IKeyChangeNotes.js";
 import { IKeyCreateRequest, IKeyCreateResponse } from "../interface/IKeyCreate.js";
@@ -28,6 +29,11 @@ export class Key {
         return <IKeyGetResponse>await Client.SendRequest("key/GetKey", Data)
     }
 
+    // This method will set a certain feature (F1..F8) to true. If the key algorithm in the product is SKGL, the key string will be changed if necessary. Otherwise, if SKM15 is used, the key will stay the same. To do the reverse, please see RemoveFeature.
+    static async AddFeature(Client: Cryptolens, Data: IKeyAddFeatureRequest) {
+        return <IKeyAddFeatureResponse>await Client.SendRequest("key/AddFeature", Data)
+    }
+
     // This method will block a specific license key to ensure that the key cannot be accessible by most of the methods in the Web API (activation, validation, optional field, and deactivation). Note, blocking the key will still allow you to access the key in Web API 3, unless otherwise stated for a given Web API 3 method. To do the reverse, please see Unblock Key.
     static async Block(Client: Cryptolens, Data: IKeyBlockRequest) {
         return <IKeyBlockResponse>await Client.SendRequest("key/BlockKey", Data)
@@ -36,6 +42,11 @@ export class Key {
     // This method will unblock a specific license key to ensure that the key can be accessible by most of the methods in the Web API (activation, validation, optional field, and deactivation). To do the reverse, please see Block Key.
     static async Unblock(Client: Cryptolens, Data: IKeyBlockRequest) {
         return <IKeyBlockResponse>await Client.SendRequest("key/UnblockKey", Data)
+    }
+
+    // This method will set a certain feature (F1..F8) to false. If the key algorithm in the product is SKGL, the key string will be changed if necessary. Otherwise, if SKM15 is used, the key will stay the same. To do the reverse, please see AddFeature.
+    static async RemoveFeature(Client: Cryptolens, Data: IKeyAddFeatureRequest) {
+        return <IKeyAddFeatureResponse>await Client.SendRequest("key/RemoveFeature", Data)
     }
 
     // This method will change the maximum number of machine codes that a license key can have.
