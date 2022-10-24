@@ -3,7 +3,7 @@ import { IStandardResponse } from "./IStandardResponse"
 
 //
 export interface IKeyAddFeatureRequest {
-    ProductId: string
+    ProductId: number
     Key: string
     Feature: number
     v?: number
