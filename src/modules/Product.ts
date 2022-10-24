@@ -34,8 +34,37 @@ export class Product {
     }
 
     // This method will return a list of keys for a given product. Please keep in mind that although each license key will be of the License Key type, the fields related to signing operations will be left empty. Instead, if you want to get a signed license key (for example, to achieve offline key activation), please use the Activation instead.
-    static async GetKeys(Client: Cryptolens, Data: IProductKeyGetRequest) {
-        return <IProductKeyGetResponse>await Client.SendRequest("product/GetKeys", Data)
+    static async GetKeys(Client: Cryptolens, Data: IProductKeyGetRequest, GetAll: boolean = false) {
+        // Make sure page is defined
+        Data.Page = Data.Page || 1 
+
+        // Grab the first set of keys
+        const Keys = <IProductKeyGetResponse>await Client.SendRequest("product/GetKeys", Data)
+
+        // We do not want to get anymore
+        if (!GetAll || Keys.pageCount == 1)
+            return Keys
+
+        // Get more until we are at the end
+        while (true) {
+            // Increment the pages, if we have not met the page count
+            if (Data.Page < Keys.pageCount)
+                Data.Page += 1
+            else
+                break
+
+            // Get more keys
+            try {
+                const MoreKeys = <IProductKeyGetResponse>await Client.SendRequest("product/GetKeys", Data)
+                Keys.licenseKeys = Keys.licenseKeys.concat(MoreKeys.licenseKeys)
+            } catch {
+                break
+            }
+            
+        }
+
+        // Return
+        return Keys
     }
 }
 export default Product
